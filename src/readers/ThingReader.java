@@ -25,6 +25,7 @@ public class ThingReader {
 		try {
 			
 			this.dotThing = new BufferedReader(new FileReader(this.addres + pId + ".thing"));
+			
 			try {
 				if((this.dotThing.readLine().equals("[THING@"+pId+"]"))==false){
 						System.out.println("Arquivo nao [THING]!");
@@ -39,18 +40,28 @@ public class ThingReader {
 	}
 
 	public ArrayList<Atribute> defineIs() {
-		String line;
-		
+		String line = "";
+		ArrayList<Atribute> is = new ArrayList<Atribute>();
 		try {
-			while ((line = this.dotThing.readLine()) != null ) {
-				System.out.println(line);
+			line = this.dotThing.readLine();
+			if(line.equals("is{")){
+				while (line.equals("}")==false) {
+					line = this.dotThing.readLine();
+					if(line.charAt(0)=='['){
+						line = line.replace("[", "").replace("]", "");
+						String[] tempVal = line.split("::");
+						is.add(new Atribute(tempVal[0],tempVal[1]));
+					}else if(line.charAt(0)=='N'){
+						is = null;
+					}
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		return null;
+		return is;
 	}
+	
 
 
 }
