@@ -69,5 +69,13 @@ public class Thing {
 	public ArrayList<Thing> getHas(){
 		return this.has;
 	}
+	
+	public String getId(){
+		return this.id;
+	}
+	
+	public double getSeed(){
+		return this.seed;
+	}
 
 }
