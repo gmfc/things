@@ -1,0 +1,13 @@
+[THING]
+@testting{
+	is{
+		[ID|testting]
+		[Seed|#seed]
+		[Nome|TestTing]
+		[Peso|50 Kg]
+		[Descricao|Uma coisa feita de coisas para testar coisas dentro de coisas]
+	}
+	has{
+		[testting|100|1..100]
+	}
+}
