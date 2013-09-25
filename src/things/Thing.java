@@ -14,24 +14,18 @@ public class Thing {
 	
 	//seed da coisa
 	double seed = 0;
+	//seed da coisa
+	String id = "";
 	//o que ela e (seus atributos)
 	ArrayList<Atribute> is = new ArrayList<Atribute>();
 	//o que ela tem
 	ArrayList<Thing> has = new ArrayList<Thing>();
 	//criador de coisas
-	ThingCreator creator = new ThingCreator();
+	ThingCreator creator;
 
 	//=========================
 	//CONSTRUTORES
 	//=========================
-	
-	/**
-	 * Construtor padrao
-	 */
-	public Thing() {
-		this.is = null;
-		this.has = null;
-	}
 
 
 	/**
@@ -40,9 +34,10 @@ public class Thing {
 	 * @param id
 	 * @param pSeed
 	 */
-	public Thing(String id, int pSeed) {
-		this.is.add(0, new Atribute("ID",id));
+	public Thing(String pId, int pSeed) {
+		this.id = pId;
 		this.seed = pSeed;
+		this.creator = new ThingCreator(this.id,this.seed);
 	}
 	
 	//=========================
@@ -54,8 +49,8 @@ public class Thing {
 	 * 
 	 */
 	public void define() {
-		this.is = this.creator.defineIs(this.is);
-		this.has = this.creator.defineHas(this.is);
+		this.is = this.creator.defineIs();
+		this.has = this.creator.defineHas();
 	}
 	
 	

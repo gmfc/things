@@ -14,7 +14,15 @@ import things.Thing;
  */
 public class ThingCreator {
 
-	ThingReader reader = new ThingReader();
+	ThingReader reader;
+	String id;
+	double seed;
+	
+	public ThingCreator(String pId,double pSeed){
+		this.id=pId;
+		this.seed=pSeed;
+		this.reader = new ThingReader(this.id);
+	}
 
 	/**
 	 * Retorna os atributos de uma determinada coisa
@@ -23,8 +31,8 @@ public class ThingCreator {
 	 *            atributos iniciais.
 	 * @return todos os atributos.
 	 */
-	public ArrayList<Atribute> defineIs(ArrayList<Atribute> is) {
-		return reader.defineIs(is.get(0));
+	public ArrayList<Atribute> defineIs() {
+		return reader.defineIs();
 	}
 
 	/**
@@ -34,7 +42,7 @@ public class ThingCreator {
 	 *            atributos iniciais
 	 * @return o que a coisa tem
 	 */
-	public ArrayList<Thing> defineHas(ArrayList<Atribute> is) {
+	public ArrayList<Thing> defineHas() {
 		// TODO Pensar nisso aqui!
 		return null;
 	}

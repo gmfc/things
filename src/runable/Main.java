@@ -8,7 +8,7 @@ public class Main {
 
 	
 	public static void main(String[] args) {
-		Thing universe =  new Thing("Universe",42);
+		Thing universe =  new Thing("testting",42);
 		universe.define();
 		
 	}

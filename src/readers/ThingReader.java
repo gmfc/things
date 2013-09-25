@@ -1,8 +1,15 @@
 package readers;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import things.Atribute;
+
+
 /**
  * Le .thing e retorna suas informacoes.
  * 
@@ -11,9 +18,39 @@ import things.Atribute;
  */
 public class ThingReader {
 
-	public ArrayList<Atribute> defineIs(Atribute ID) {
-		// TODO Pensar nisso aqui!
+	BufferedReader dotThing;
+	String addres = "." + File.separator + "data" + File.separator + "things" + File.separator;
+
+	public ThingReader(String pId) {
+		try {
+			
+			this.dotThing = new BufferedReader(new FileReader(this.addres + pId + ".thing"));
+			try {
+				if((this.dotThing.readLine().equals("[THING@"+pId+"]"))==false){
+						System.out.println("Arquivo nao [THING]!");
+						this.dotThing=null;
+					}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<Atribute> defineIs() {
+		String line;
+		
+		try {
+			while ((line = this.dotThing.readLine()) != null ) {
+				System.out.println(line);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
+
 
 }
