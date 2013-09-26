@@ -9,5 +9,5 @@ is{
 has{
 [testting]
 [testting::50]
-[testting::50::0-100]
+[testting::100::1-20]
 }

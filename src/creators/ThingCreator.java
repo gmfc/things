@@ -58,7 +58,7 @@ public class ThingCreator {
 			
 			if(thingAndAtributes.length==1){//se o array tiver 1 termo, cria a coisa.
 				this.redundanceCheck++;
-				things.add(new Thing(thingAndAtributes[0],(ProceduralGen.getSeed(this.seed*this.redundanceCheck))));
+				things.add(new Thing(thingAndAtributes[0],(ProceduralGen.getSeed(ProceduralGen.getSeed(this.seed*this.redundanceCheck)))));
 			
 			//===============================================================
 				
@@ -67,11 +67,11 @@ public class ThingCreator {
 				double ch = Double.parseDouble(thingAndAtributes[1]);//Ocorrencia da coisa
 				
 				this.redundanceCheck++;
-				double p = ProceduralGen.getCent(this.seed*this.redundanceCheck);//Um numero pseudorandomico
+				double p = ProceduralGen.getCent(this.seed+this.redundanceCheck);//Um numero pseudorandomico
 				
 				if((p)<=ch){//Checa se ocorreu
 					this.redundanceCheck++;
-					things.add(new Thing(thingAndAtributes[0],(ProceduralGen.getSeed(this.seed*this.redundanceCheck))));//Cria
+					things.add(new Thing(thingAndAtributes[0],(ProceduralGen.getSeed(ProceduralGen.getSeed(this.seed*this.redundanceCheck)))));//Cria
 				}
 			
 			//================================================================
@@ -81,7 +81,7 @@ public class ThingCreator {
 				double ch = Double.parseDouble(thingAndAtributes[1]);//Ocorrencia da coisa
 				
 				this.redundanceCheck++;
-				double p = ProceduralGen.getCent(this.seed*this.redundanceCheck);//Um numero pseudorandomico
+				double p = ProceduralGen.getCent(ProceduralGen.getSeed(this.seed*this.redundanceCheck));//Um numero pseudorandomico
 				
 				if((p)<=ch){//Checa se ocorreu
 					
@@ -97,7 +97,7 @@ public class ThingCreator {
 					
 					for(int contador=0;contador<quant;contador++){
 						this.redundanceCheck++;
-						things.add(new Thing(thingAndAtributes[0],(ProceduralGen.getSeed(this.seed*this.redundanceCheck))));//Cria
+						things.add(new Thing(thingAndAtributes[0],(ProceduralGen.getSeed(ProceduralGen.getSeed(this.seed*this.redundanceCheck)))));//Cria
 					}
 					
 					
