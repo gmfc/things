@@ -50,7 +50,14 @@ public class ThingReader {
 					if(line.charAt(0)=='['){
 						line = line.replace("[", "").replace("]", "");
 						String[] tempVal = line.split("::");
-						is.add(new Atribute(tempVal[0],tempVal[1]));
+						
+						if(tempVal.length==3){
+							is.add(new Atribute(tempVal[0],tempVal[1]+"::"+tempVal[2]));
+						}else{
+							is.add(new Atribute(tempVal[0],tempVal[1]));
+						}
+						
+						
 					}else if(line.charAt(0)=='N'){
 						is = null;
 					}
@@ -60,6 +67,25 @@ public class ThingReader {
 			e.printStackTrace();
 		}
 		return is;
+	}
+
+	public ArrayList<String> defineHas() {
+		String line;
+		ArrayList<String> tempList = new ArrayList<String>();
+		try {
+			line = this.dotThing.readLine();
+			
+			if(line.equals("has{")){
+				line = this.dotThing.readLine();
+				while(line.equals("}")==false){
+					tempList.add(line);
+					line = this.dotThing.readLine();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return tempList;
 	}
 	
 

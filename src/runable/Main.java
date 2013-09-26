@@ -9,25 +9,37 @@ import things.*;
 
 public class Main {
 
+	static Thing currentThing;
 	
 	public static void main(String[] args) {
-		Thing thing =  new Thing("testting",42);
-		thing.define();
-		ArrayList<Atribute> analizador = thing.getIs();
 		
-		System.out.println("ID: "+thing.getId());
-		System.out.println("Seed: "+thing.getSeed());
+		currentThing = new Thing("testting",425);
+		currentThing.define();
+		
+		analize(currentThing);
+	
+	}
+	
+	public static void analize(Thing thing){
 		System.out.println("========================================================");
-		System.out.println("========================================================");
-		if(analizador==null){
-			System.out.println("NULL!");
-		}else{
-			for(Atribute atr:analizador){
-				System.out.println("Atributo: "+atr.getName());
-				System.out.println("Valor: "+atr.getValue());
-				System.out.println("========================================================");
-			}
+		System.out.println("==============   ANALIZANDO              ===============");
+		System.out.println("........................................................");
+		
+		System.out.println("Id da coisa: "+thing.getId());
+		System.out.println("seed da coisa: "+thing.getSeed());
+		
+		System.out.println("........................................................");
+		System.out.println("==============   ATRIBUTOS               ===============");
+		
+		ArrayList<Atribute> atr = thing.getIs();
+		for(Atribute atrr:atr){
+			System.out.println(atrr.getName()+": "+atrr.getValue());
 		}
+		
+		System.out.println("........................................................");
+		System.out.println("==============   O QUE TEM:              ===============");
+		
+		System.out.println("Numero de coisas: "+thing.getHas().size());
 		
 	}
 

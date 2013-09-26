@@ -34,7 +34,7 @@ public class Thing {
 	 * @param id
 	 * @param pSeed
 	 */
-	public Thing(String pId, int pSeed) {
+	public Thing(String pId, double pSeed) {
 		this.id = pId;
 		this.seed = pSeed;
 		this.creator = new ThingCreator(this.id,this.seed);

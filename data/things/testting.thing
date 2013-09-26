@@ -7,5 +7,7 @@ is{
 [Descricao::Uma coisa feita de coisas para testar coisas dentro de coisas]
 }
 has{
-[testting::1..100::100]
+[testting]
+[testting::20]
+[testting::20::0-100]
 }
