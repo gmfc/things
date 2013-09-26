@@ -35,9 +35,9 @@ public class ProceduralGen {
 	 * @param seed
 	 * @return
 	 */
-	public static double getDecimalNum(double seed) {
-		int m = 1000000000;
-		return ((((a * seed + b) % m) / 1000) / 1000000);
+	public static double getCent(double seed) {
+		int m = 100000;
+		return (((a * seed + b) % m) / 1000);
 	}// getDecimalNum
 	
 }

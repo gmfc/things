@@ -2,6 +2,7 @@ package runable;
 
 import java.util.ArrayList;
 
+
 import things.*;
 
 
@@ -13,10 +14,22 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		currentThing = new Thing("testting",425);
+		currentThing = new Thing("testting",23454566);
 		currentThing.define();
 		
 		analize(currentThing);
+		System.out.println("========================================================");
+		System.out.println("ENTRANDO NA COISA DE INDEX ZERO ");
+		System.out.println("========================================================");
+		System.out.println("========================================================");
+		System.out.println("========================================================");
+		currentThing = currentThing.getHas().get(0);
+		currentThing.define();
+		analize(currentThing);
+		
+		
+		//testaGen();
+		
 	
 	}
 	
@@ -41,6 +54,9 @@ public class Main {
 		
 		System.out.println("Numero de coisas: "+thing.getHas().size());
 		
+		
 	}
+	
+
 
 }

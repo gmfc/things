@@ -8,6 +8,6 @@ is{
 }
 has{
 [testting]
-[testting::20]
-[testting::20::0-100]
+[testting::50]
+[testting::50::0-100]
 }
